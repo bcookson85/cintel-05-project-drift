@@ -1,8 +1,8 @@
 # cintel-05-drift-detection
 
 [![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](pyproject.toml)
-[![CI](https://github.com/denisecase/cintel-05-drift-detection/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/denisecase/cintel-05-drift-detection/actions/workflows/ci-python-zensical.yml)
-[![Documentation](https://img.shields.io/badge/docs-site-blue?logo=github)](https://denisecase.github.io/cintel-05-drift-detection/)
+[![CI](https://github.com/bcookson85/cintel-05-project-drift/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/bcookson85/cintel-05-project-drift/actions/workflows/ci-python-zensical.yml)
+[![Documentation](https://img.shields.io/badge/docs-site-blue?logo=github)](https://bcookson85.github.io/cintel-05-project-drift/)
 
 [![uv managed](https://img.shields.io/badge/uv-managed-DE5FE9)](https://docs.astral.sh/uv/)
 [![ty type checked](https://img.shields.io/badge/ty-type_checked-2F80ED)](https://docs.astral.sh/ty/)
@@ -13,17 +13,39 @@
 
 ## Project Overview
 
-Author: Denise Case
+**Author:** Brian Cookson
 
-Date: 2026 October
+**Date:** November 2026
 
-This project introduces drift detection.
+This project explores drift detection using Python and Polars as part of
+the Continuous Intelligence course at Northwest Missouri State University.
 
-The goal is to compare current measurements against a reference period
-and identify changes that exceed defined thresholds.
+The initial objective is to understand and execute Dr. Denise Case's
+original drift detection example, which compares historical reference
+data against current system measurements to identify meaningful changes.
 
-The project is configured in
-[pyproject.toml](pyproject.toml).
+### Proposed Customization: Project Response-Time Drift Detection
+
+My proposed customization will apply drift detection techniques to
+project request response times, building on the project performance
+monitoring applications developed in previous modules.
+
+Using synthetic project request data, the application will explore:
+
+- **Historical Baseline:** Establish typical response times from a
+  reference period of project activity.
+- **Current Performance:** Compare recent project response times against
+  the historical baseline.
+- **Response-Time Drift:** Identify sustained changes in average
+  response times that exceed defined thresholds.
+- **Operational Monitoring:** Explore how drift detection could help
+  analysts recognize developing project performance issues.
+
+The goal is to demonstrate how comparing historical and current
+performance can help identify meaningful changes in project responsiveness
+and support more informed operational decisions.
+
+The project is configured in [pyproject.toml](pyproject.toml).
 
 ## Data
 
@@ -112,7 +134,7 @@ uv run pytest
 
 ## Project Documentation
 
-The [hosted documentation site](https://denisecase.github.io/cintel-05-drift-detection/)
+[hosted documentation site](https://bcookson85.github.io/cintel-05-project-drift/)
 is published using Zensical and GitHub Pages.
 
 The documentation site is used to present the project report,
@@ -125,8 +147,8 @@ This project includes continuous integration and continuous deployment (CI/CD)
 to check project files and publish the docs.
 GitHub Actions include:
 
-- [CI: Python and Documentation Checks](https://github.com/denisecase/cintel-05-drift-detection/actions/workflows/ci-python-zensical.yml)
-- [CD: Documentation Deployment](https://github.com/denisecase/cintel-05-drift-detection/actions/workflows/deploy-zensical.yml)
+- [CI: Python and Documentation Checks](https://github.com/bcookson85/cintel-05-project-drift/actions/workflows/ci-python-zensical.yml)
+- [CD: Documentation Deployment](https://github.com/bcookson85/cintel-05-project-drift/actions/workflows/deploy-zensical.yml)
 
 ## Developer Reference
 
@@ -211,7 +233,7 @@ testing, documentation, and code quality.
 
 ## Links
 
-- [Hosted Documentation](https://denisecase.github.io/cintel-05-drift-detection/)
+- [Hosted Documentation](https://bcookson85.github.io/cintel-05-project-drift/)
 - [Professional Python Workflow Guide](https://denisecase.github.io/pro-analytics-02/)
 - [Citation](CITATION.cff)
 - [License](LICENSE)
