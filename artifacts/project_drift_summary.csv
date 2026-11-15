@@ -1,0 +1,2 @@
+reference_count,current_count,reference_avg_response_days,current_avg_response_days,response_mean_difference_days,response_drift_threshold_days,response_is_drifting,reference_overdue_rate_pct,current_overdue_rate_pct,overdue_rate_difference_pct_points,overdue_drift_threshold_pct_points,overdue_rate_is_drifting
+30,30,4.0,7.97,3.97,2.0,true,0.0,56.67,56.67,20.0,true

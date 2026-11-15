@@ -98,6 +98,90 @@ the monitored process and its operational requirements.
 Thresholds set too high may miss meaningful changes, while
 thresholds set too low may produce unnecessary alerts.
 
+### Custom Application: Project Response-Time Drift Detection
+
+This custom application applies baseline comparison and drift detection
+techniques to synthetic project request response data.
+
+The project uses two datasets containing 30 observations each:
+
+- **Historical reference period:** Represents normal project response
+  performance, with an average response time of 4.00 days.
+- **Current period:** Represents more recent project activity, with
+  an average response time of 7.97 days.
+
+The application monitors two indicators:
+
+- **Average Response-Time Drift:** A change of more than 2 days
+  between the reference and current averages.
+- **Overdue-Rate Drift:** A change of more than 20 percentage points
+  in the percentage of requests taking longer than 7 days.
+
+Both datasets are synthetic and were created for educational purposes.
+They do not represent actual employer or organizational data.
+
+#### Run the Custom Application
+
+From the project root directory, synchronize dependencies:
+
+```powershell
+uv sync
+```
+
+Run the custom drift detection pipeline:
+
+```powershell
+uv run python -m cintel.project_drift
+```
+
+This processes the two custom datasets:
+
+- `data/project_reference_responses.csv`
+- `data/project_current_responses.csv`
+
+The results are exported to:
+
+`artifacts/project_drift_summary.csv`
+
+Generate the visualization:
+
+```powershell
+uv run python -m cintel.visualize_project
+```
+
+The chart is saved to:
+
+`docs/images/project_drift_chart.png`
+
+#### Custom Results
+
+The historical average response time was **4.00 days**, compared
+with **7.97 days** in the current period.
+
+The increase of **3.97 days** exceeded the 2-day drift threshold.
+
+The overdue request rate increased from **0.00% to 56.67%**,
+exceeding the 20-percentage-point drift threshold.
+
+Both indicators were flagged as drifting.
+
+These findings demonstrate how baseline comparisons can reveal
+changes in project responsiveness that may warrant investigation.
+
+Because the data is synthetic, the results illustrate the
+analytical approach rather than actual organizational performance.
+
+#### Custom Project Files
+
+- [Historical Reference Dataset](data/project_reference_responses.csv)
+- [Current Project Dataset](data/project_current_responses.csv)
+- [Custom Drift Detection Application](src/cintel/project_drift.py)
+- [Project Utility Functions](src/cintel/utils_project.py)
+- [Visualization Code](src/cintel/visualize_project.py)
+- [Generated Drift Results](artifacts/project_drift_summary.csv)
+- [Project Report](docs/index.md)
+- [Project Visualization](docs/images/project_drift_chart.png)
+
 ## Data
 
 The example uses two datasets from `data/`:
