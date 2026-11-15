@@ -1,5 +1,8 @@
 """utils_stats.py.
 
+Author: Brian Cookson
+Date: 2026-11
+
 Statistical comparisons for system monitoring.
 
 Compare error rates between reference and current observations.
