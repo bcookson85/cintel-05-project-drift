@@ -47,6 +47,57 @@ and support more informed operational decisions.
 
 The project is configured in [pyproject.toml](pyproject.toml).
 
+### Technical Experiment: Requests Drift Threshold
+
+**Objective:** Investigate how changing the requests drift threshold
+affects the detection of changes in system behavior.
+
+**Original Configuration:**
+The original project used a requests drift threshold of 20.0.
+The difference between reference and current average requests
+was 36.2, resulting in a drift flag of True.
+
+**Modification:**
+In `src/cintel/drift_detector.py`, I changed:
+
+`REQUESTS_DRIFT_THRESHOLD: Final[float] = 20.0`
+
+to:
+
+`REQUESTS_DRIFT_THRESHOLD: Final[float] = 40.0`
+
+**Reason:**
+I wanted to understand how increasing a threshold changes
+the sensitivity of a drift detection system.
+
+**Prediction:**
+I predicted that raising the threshold to 40.0 would change
+the requests drift flag from True to False because the
+observed difference of 36.2 would no longer exceed the threshold.
+The errors and latency flags should remain True.
+
+**Actual Results:**
+After rerunning the pipeline, the requests drift flag changed
+to False, while the errors and latency flags remained True.
+
+| Metric | Mean Difference | Threshold | Drift Flag |
+|---|---:|---:|---|
+| Requests | 36.2 | 40.0 | False |
+| Errors | 4.0 | 2.0 | True |
+| Latency | 1835.0 ms | 1000.0 ms | True |
+
+**Interpretation:**
+The experiment confirmed that threshold selection directly affects
+drift classification. Although the underlying data and calculated
+differences remained unchanged, increasing the requests threshold
+caused the system to stop flagging requests as drifting.
+
+**Conclusion:**
+Drift thresholds should be selected with consideration for
+the monitored process and its operational requirements.
+Thresholds set too high may miss meaningful changes, while
+thresholds set too low may produce unnecessary alerts.
+
 ## Data
 
 The example uses two datasets from `data/`:

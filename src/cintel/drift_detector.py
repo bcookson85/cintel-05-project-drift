@@ -99,7 +99,7 @@ SUMMARY_LONG_FILE: Final[Path] = ARTIFACTS_DIR / "drift_summary_long.csv"
 # In this example, we compare current metrics to a reference period
 # and flag drift when the difference exceeds these thresholds:
 
-REQUESTS_DRIFT_THRESHOLD: Final[float] = 20.0
+REQUESTS_DRIFT_THRESHOLD: Final[float] = 40.0
 ERRORS_DRIFT_THRESHOLD: Final[float] = 2.0
 LATENCY_DRIFT_THRESHOLD: Final[float] = 1000.0
 
